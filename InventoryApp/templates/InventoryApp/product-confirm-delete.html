@@ -1,0 +1,17 @@
+{% extends "InventoryApp/layout.html" %}
+
+
+{% block title %}Confirm Delete{% endblock title %}
+
+{% block content %}
+    <div class="container text-center">
+        <h1>Are you sure you want to <span class="red">delete</span> this product?</h1>
+        <p>It is <span class="red">permanent</span>.</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-danger">Yes</button>
+            <a href="{% url 'product-list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+{% endblock content %}

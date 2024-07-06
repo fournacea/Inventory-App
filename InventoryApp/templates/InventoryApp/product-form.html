@@ -1,1 +1,20 @@
-Hello World!!!
+{% extends "InventoryApp/layout.html" %}
+
+
+{% block title %}Product Form{% endblock title %}
+
+{% block content %}
+    
+
+
+    <div class="container text-center">
+        <h1 class="text-center display-4 fw-normal">Product Form</h1>
+        <form action="#" method="POST" class="form-control-lg">
+            {% csrf_token %}
+            {{ form }}
+            <button class="btn btn-secondary btn-lg mt-3">Save Product</button>
+        </form>
+    </div>
+
+
+{% endblock content %}

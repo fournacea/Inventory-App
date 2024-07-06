@@ -1,1 +1,46 @@
-READ view works!
+{% extends "InventoryApp/layout.html" %}
+
+{% block title %}All Products{% endblock title %}
+
+{% block content %}
+    <div class="container-fluid text-center">
+        <h1 class="mt-5 mb-5 display-4 fw-normal">Product List</h1>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Product ID</th>
+                    <th>Name</th>
+                    <th>SKU</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Supplier</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if products %}
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.product_id }}</td>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.sku }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.quantity }}</td>
+                            <td>{{ product.supplier }}</td>
+                            <td class="m-3">
+                                <a 
+                                href="{% url 'product-update' product.product_id %}"
+                                class="btn btn-secondary"
+                                >Update</a>
+                                <a 
+                                href="{% url 'product-delete' product.product_id %}"
+                                class="btn btn-danger ms-3"
+                                >Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

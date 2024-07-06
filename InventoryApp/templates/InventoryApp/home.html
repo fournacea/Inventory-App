@@ -1,1 +1,24 @@
-Hello WORLD!
+{% extends "InventoryApp/layout.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+   
+    <div class="container my-5 me-5">
+        <div class="p-5 mb-4 me-2 bg-dark-blue rounded-3">
+          <div class="container-fluid py-2">
+            <h1 class="display-5 fw-bold">Welcome to the Inventory Management System</h1>
+            <p class="col-md-8 fs-4 fw-normal">
+                Manage your products efficiently and effectively.
+            </p>
+            <a href="{% url 'product-list' %}" class="btn btn-secondary btn-lg">View Products</a>
+          </div>
+        </div>
+        <div class="container ms-3 pe-5 me-3">
+          <hr class="my-4">
+          <p>Use the navigation bar to view, add, update, or delete products.</p>
+        </div>
+      </div>
+
+{% endblock content %}
+

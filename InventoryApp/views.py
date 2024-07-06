@@ -54,4 +54,6 @@ def product_update_view(request, product_id):
         return redirect('product-list')
     
     # GET request
+    form =ProductForm(instance=product)
+    
     return render(request, 'InventoryApp/product-form.html', {'form': form})
